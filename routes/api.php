@@ -17,7 +17,16 @@ use App\Http\Controllers\AuthenticationController;
 //Public Route
 Route::post('/login' , 'AuthenticationController@login')->name('login');
 
+Route::post('/register', 'RegisterController@store')->name('register');
+
 //Private Route
 Route::middleware('auth:api')->group(function() {
    Route::get('/logout', 'AuthenticationController@logout')->name('logout');
+
+   Route::get('/user/{id}', 'UserController@show');
+
+
+
+
+
 });
