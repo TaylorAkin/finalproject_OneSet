@@ -40,4 +40,24 @@ class AuthenticationController extends Controller
         $response = 'You have been successfully logged out!';
         return response($response, 200);
     }
+
+    public function register(Request $request){
+
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        
+        $user = User::create(request(['name', 'email', 'password']));
+        
+        // auth()->login($user);
+        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $response = [
+            'token' => $token,
+            'user' => $user,
+        ];
+        return response($response, 200);
+
+    }
 }
