@@ -13,15 +13,16 @@ class AuthenticationController extends Controller
 {
     public function login(Request $request) {
         $user = User::where('email', $request->email)->first();
-        // $profile = Profile::where('user_id', $email->id)->first();
+        
 
         if ($user) {
             if ($request->password == $user->password) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+                $profile = Profile::where('user_id', $user->id)->get();
+                $user->profile = $profile;
                 $response = [
                     'token' => $token,
                     'user' => $user,
-                    // 'profile' => $profile,
                 ];
                 return response($response, 200);
             } else {
@@ -53,12 +54,21 @@ class AuthenticationController extends Controller
         ]);
         
         $user = User::create(request(['name', 'email', 'password']));
+
+        // $profile = Profile::create(["user_id"=>$user->id, "bio"=>"","contact_info"=> 'user_email']);
+        
+        // factory(User::create(request(['name', 'email', 'password']))->each(function ($user) {
+        //     $user->profile()->save(factory(App\Profile::class)->make());
+        // });
+        // $profile = Profile::create();
         
         // auth()->login($user);
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $response = [
             'token' => $token,
             'user' => $user,
+            // 'profile' => $profile,
+
         ];
         return response($response, 200);
 
