@@ -17,7 +17,7 @@ use App\Http\Controllers\AuthenticationController;
 //Public Route
 Route::post('/login' , 'AuthenticationController@login')->name('login');
 
-Route::post('/register', 'RegisterController@store')->name('register');
+Route::post('/register', 'AuthenticationController@register')->name('register');
 
 //Private Route
 Route::middleware('auth:api')->group(function() {
