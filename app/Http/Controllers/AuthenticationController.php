@@ -55,7 +55,8 @@ class AuthenticationController extends Controller
         
         $user = User::create(request(['name', 'email', 'password']));
 
-        // $profile = Profile::create(["user_id"=>$user->id, "bio"=>"","contact_info"=> 'user_email']);
+        // $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"","contact_info"=> 'user_email']);
+
         
         // factory(User::create(request(['name', 'email', 'password']))->each(function ($user) {
         //     $user->profile()->save(factory(App\Profile::class)->make());
@@ -67,9 +68,10 @@ class AuthenticationController extends Controller
         $response = [
             'token' => $token,
             'user' => $user,
-            // 'profile' => $profile,
+            // 'createprofile' => $createprofile
 
         ];
+
         return response($response, 200);
 
     }
