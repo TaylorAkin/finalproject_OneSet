@@ -7,11 +7,13 @@ use App\Http\Controllers\Controller;
 use Lcobucci\JWT\Parser;
 
 use App\User;
+use App\Profile;
 
 class AuthenticationController extends Controller
 {
     public function login(Request $request) {
         $user = User::where('email', $request->email)->first();
+        // $profile = Profile::where('user_id', $email->id)->first();
 
         if ($user) {
             if ($request->password == $user->password) {
@@ -19,6 +21,7 @@ class AuthenticationController extends Controller
                 $response = [
                     'token' => $token,
                     'user' => $user,
+                    // 'profile' => $profile,
                 ];
                 return response($response, 200);
             } else {
