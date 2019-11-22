@@ -8,6 +8,8 @@ use Lcobucci\JWT\Parser;
 
 use App\User;
 use App\Profile;
+use App\Musician;
+use App\Venue;
 
 class AuthenticationController extends Controller
 {
@@ -54,9 +56,22 @@ class AuthenticationController extends Controller
         ]);
         
         $user = User::create(request(['name', 'email', 'password']));
+        // TODO: 
+        // assign the role based on the request value
+
+        // create musician or venue based on the role
+
+        //if request->role == true
+        $createmusician = Musician::create(["user_id"=>$user->id]);
+
+
+        $createvenue = Venue::create(["user_id"=>$user->id]);
+        
+
 
         $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"Edit Me","contact_info" => 'nothing']);
         
+
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $user->profile = $createprofile;
         $response = [
