@@ -67,9 +67,18 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Profile $profile)
+    public function update(Request $request, $user_id)
     {
-        //
+        // var_dump($request);
+        // die();
+        // return $request->toArray();
+        $updateprofile = Profile::where('user_id', $user_id)
+        ->update([
+           
+             'bio' => $request->input('bio'),
+
+           ]);
+    
     }
 
     /**

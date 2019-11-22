@@ -55,21 +55,13 @@ class AuthenticationController extends Controller
         
         $user = User::create(request(['name', 'email', 'password']));
 
-        // $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"","contact_info"=> 'user_email']);
-
+        $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"Edit Me","contact_info" => 'nothing']);
         
-        // factory(User::create(request(['name', 'email', 'password']))->each(function ($user) {
-        //     $user->profile()->save(factory(App\Profile::class)->make());
-        // });
-        // $profile = Profile::create();
-        
-        // auth()->login($user);
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+        $user->profile = $createprofile;
         $response = [
             'token' => $token,
             'user' => $user,
-            // 'createprofile' => $createprofile
-
         ];
 
         return response($response, 200);
