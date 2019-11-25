@@ -48,7 +48,7 @@ class AuthenticationController extends Controller
     }
 
     public function register(Request $request){
-
+        // dd($request);
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -61,15 +61,17 @@ class AuthenticationController extends Controller
 
         // create musician or venue based on the role
 
-        //if request->role == true
-        $createmusician = Musician::create(["user_id"=>$user->id]);
-
-
-        $createvenue = Venue::create(["user_id"=>$user->id]);
-        
-
-
         $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"Edit Me","contact_info" => 'nothing']);
+
+        if($request->role === 'musician'){
+            
+            $createmusician = Musician::create(["user_id"=>$user->id]);
+        } else{
+
+            $createvenue = Venue::create(["user_id"=>$user->id]);
+
+        }
+
         
 
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
