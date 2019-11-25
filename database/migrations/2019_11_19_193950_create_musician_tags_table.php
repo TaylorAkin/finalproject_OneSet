@@ -18,8 +18,8 @@ class CreateMusicianTagsTable extends Migration
             $table->unsignedBigInteger('musician_id');
             $table->unsignedBigInteger('tag_id');
             $table->timestamps();
-            $table->foreign('musician_id')->references('id')->on('musicians')->onDelete('cascade');
-            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+            $table->foreign('musician_id')->references('id')->on('musicians');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
