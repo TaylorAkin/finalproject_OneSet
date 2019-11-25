@@ -48,7 +48,7 @@ class AuthenticationController extends Controller
     }
 
     public function register(Request $request){
-        // dd($request);
+       
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
@@ -58,11 +58,12 @@ class AuthenticationController extends Controller
         $user = User::create(request(['name', 'email', 'password']));
         // TODO: 
         // assign the role based on the request value
+        //put in model has role table push here? (needs a model?)
 
-        // create musician or venue based on the role
-
+        
         $createprofile = Profile::create(["user_id"=>$user->id, "bio"=>"Edit Me","contact_info" => 'nothing']);
-
+        
+        // create musician or venue based on the role
         if($request->role === 'musician'){
             
             $createmusician = Musician::create(["user_id"=>$user->id]);

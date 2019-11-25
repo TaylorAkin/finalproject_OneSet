@@ -69,7 +69,12 @@ class MusicianTagController extends Controller
      */
     public function update(Request $request, MusicianTag $musicianTag)
     {
-        //
+        // $updatemusiciantag = MusicianTag::where('user_id', $user_id)
+        // ->update([
+           
+        //      '' => $request->input('bio'),
+
+        //    ]);
     }
 
     /**

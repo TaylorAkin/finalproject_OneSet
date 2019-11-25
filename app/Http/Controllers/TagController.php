@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Http\Resources\TagCollection;
 
 class TagController extends Controller
 {
@@ -44,9 +45,9 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function show(Tag $tag)
+    public function show(Request $request, Tag $tag)
     {
-        //
+        return new TagCollection(Tag::all());
     }
 
     /**
