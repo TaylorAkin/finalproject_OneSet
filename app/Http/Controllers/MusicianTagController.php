@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\MusicianTag;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class MusicianTagController extends Controller
@@ -47,6 +48,7 @@ class MusicianTagController extends Controller
     public function show(MusicianTag $musicianTag)
     {
         //
+
     }
 
     /**
@@ -78,8 +80,16 @@ class MusicianTagController extends Controller
             // add each tag
             MusicianTag::create(['musician_id' => $request->musician_id, 'tag_id' => $request->tags[$i]]);
         }
+        $musicianTags = [];
+        $musicianTags = MusicianTag::where('musician_id', $request->musician_id)->get();
+        foreach ($musicianTags as $musicianTag) {
+            $name = Tag::where('id', $musicianTag->tag_id)->get();
+            if (count($name) > 0) {
+                $musicianTag->name = $name;
+            }
+        }
         
-        return MusicianTag::all()->toArray();
+        return $musicianTags;
 
     }
 
