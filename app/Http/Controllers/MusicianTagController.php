@@ -67,9 +67,20 @@ class MusicianTagController extends Controller
      * @param  \App\MusicianTag  $musicianTag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MusicianTag $musicianTag)
+    public function update(Request $request)
     {
-        //
+        // delete all musician tags
+        $mytags = MusicianTag::where('musician_id', $request->musician_id)
+        ->delete();
+
+        // loop thru all tags in request->tags
+        for($i = 0; $i < count($request->tags); $i++){
+            // add each tag
+            MusicianTag::create(['musician_id' => $request->musician_id, 'tag_id' => $request->tags[$i]]);
+        }
+        
+        return MusicianTag::all()->toArray();
+
     }
 
     /**

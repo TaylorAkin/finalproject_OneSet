@@ -15,6 +15,10 @@ class CreatePingsTable extends Migration
     {
         Schema::create('pings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('musician_id');
+            $table->unsignedBigInteger('venue_id');
+            $table->foreign('musician_id')->references('id')->on('musicians')->onDelete('cascade');
+            $table->foreign('venue_id')->references('id')->on('venues')->onDelete('cascade');
             $table->timestamps();
         });
     }
