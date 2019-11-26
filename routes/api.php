@@ -27,4 +27,8 @@ Route::middleware('auth:api')->group(function() {
 
    Route::post('/profile/{id}' , 'ProfileController@update')->name('updateprofile');
 
+   Route::get('/tags', 'TagController@show')->name('tags');
+
+   Route::post('/mytags', 'MusicianTagController@update')->name('mytags');
+
 });

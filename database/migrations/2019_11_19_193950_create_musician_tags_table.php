@@ -15,9 +15,11 @@ class CreateMusicianTagsTable extends Migration
     {
         Schema::create('musician_tags', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('musician_id');
+            $table->unsignedBigInteger('tag_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('musician_id')->references('id')->on('musicians');
+            $table->foreign('tag_id')->references('id')->on('tags');
         });
     }
 
