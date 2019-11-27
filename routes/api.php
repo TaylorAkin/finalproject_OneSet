@@ -33,4 +33,6 @@ Route::middleware('auth:api')->group(function() {
 
    Route::get('/venues', 'VenueController@index')->name('allvenues');
 
+   Route::get('/profile/{id}', 'ProfileController@show')->name('profile');
+
 });
