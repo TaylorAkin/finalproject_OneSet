@@ -99,6 +99,7 @@ class AuthenticationController extends Controller
 
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $user->profile = $createprofile;
+        $user->role = $request->role;
         $response = [
             'token' => $token,
             'user' => $user,
