@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Musician;
 use Illuminate\Http\Request;
+use App\Http\Resources\MusicianCollection;
 
 class MusicianController extends Controller
 {
@@ -14,7 +15,10 @@ class MusicianController extends Controller
      */
     public function index()
     {
-        //
+        $musicians = Musician::all();
+        $musicians->load('user');
+        
+        return new MusicianCollection($musicians);
     }
 
     /**

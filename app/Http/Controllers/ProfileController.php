@@ -80,13 +80,14 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $user_id)
     {
-        // var_dump($request);
-        // die();
+        // dd($request);
+        
         // return $request->toArray();
         $updateprofile = Profile::where('user_id', $user_id)
         ->update([
            
              'bio' => $request->input('bio'),
+             'picture_path' => $request->picture_path,
 
            ]);
     
