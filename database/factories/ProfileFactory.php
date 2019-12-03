@@ -9,7 +9,7 @@ $factory->define(Profile::class, function (Faker $faker) {
     return [
     
         'bio' => $faker->paragraph(),
-        'contact_info' => 'user_email'
+        'picture_path' => 'empty'
         
 
 

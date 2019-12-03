@@ -31,4 +31,12 @@ Route::middleware('auth:api')->group(function() {
 
    Route::post('/mytags', 'MusicianTagController@update')->name('mytags');
 
+   Route::get('/venues', 'VenueController@index')->name('allvenues');
+
+   Route::get('/profile/{id}', 'ProfileController@show')->name('profile');
+
+   Route::get('/musicians', 'MusicianController@index')->name('allmusicians');
+
+   Route::post('/profilepicture', 'MusicianTagController@update')->name('mytags');
+
 });

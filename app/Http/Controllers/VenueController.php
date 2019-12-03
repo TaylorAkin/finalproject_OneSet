@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Venue;
 use Illuminate\Http\Request;
+use App\Http\Resources\VenueCollection;
 
 class VenueController extends Controller
 {
@@ -14,7 +15,10 @@ class VenueController extends Controller
      */
     public function index()
     {
-        //
+        $venues = Venue::all();
+        $venues->load('user');
+        
+        return new VenueCollection($venues);
     }
 
     /**

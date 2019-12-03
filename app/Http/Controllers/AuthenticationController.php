@@ -28,8 +28,8 @@ class AuthenticationController extends Controller
                 $venue = Venue::where('user_id', $user->id)->get();
                 $musicianTags = [];
                 if (count($musician) > 0) {
-
-                    $musicianTags = MusicianTag::where('musician_id', $musician[0]->user_id)->get();
+                    
+                    $musicianTags = MusicianTag::where('musician_id', $musician[0]->id)->get();
                     foreach ($musicianTags as $musicianTag) {
                         $name = Tag::where('id', $musicianTag->tag_id)->get();
                         if (count($name) > 0) {
@@ -43,6 +43,7 @@ class AuthenticationController extends Controller
                 $user->venue = $venue;
                 $user->profile = $profile;
                 $user->musicianTags = $musicianTags;
+                // $user->role = $request->role;
                 $response = [
                     'token' => $token,
                     'user' => $user,
@@ -83,12 +84,13 @@ class AuthenticationController extends Controller
         //put in model has role table push here? (needs a model?)
 
 
-        $createprofile = Profile::create(["user_id" => $user->id, "bio" => "Edit Me", "contact_info" => 'nothing']);
+        $createprofile = Profile::create(["user_id" => $user->id, "bio" => "Edit Me", "picture_path" => 'empty']);
         
         // create musician or venue based on the role
         if ($request->role === 'musician') {
 
             $createmusician = Musician::create(["user_id" => $user->id]);
+            // $user->musician =$createmusician;
         } else {
 
             $createvenue = Venue::create(["user_id" => $user->id]);
@@ -99,6 +101,7 @@ class AuthenticationController extends Controller
 
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $user->profile = $createprofile;
+        $user->role = $request->role;
         $response = [
             'token' => $token,
             'user' => $user,
