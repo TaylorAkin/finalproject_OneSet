@@ -17,7 +17,7 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('bio');
-            $table->string('contact_info');
+            $table->string('picture_path')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

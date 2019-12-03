@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Profile;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProfileCollection;
 
 class ProfileController extends Controller
 {
@@ -44,9 +45,19 @@ class ProfileController extends Controller
      * @param  \App\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Profile $profile)
+    public function show($profile)
     {
-        //
+    
+        $getprofile = new ProfileCollection(Profile::where('user_id', $profile)->get());
+
+        return $getprofile;
+
+        // $profile = Profile::all();
+        // $profile->load('user');
+        
+        // return new ProfileCollection($profile);
+
+    
     }
 
     /**
@@ -69,13 +80,14 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $user_id)
     {
-        // var_dump($request);
-        // die();
+        // dd($request);
+        
         // return $request->toArray();
         $updateprofile = Profile::where('user_id', $user_id)
         ->update([
            
              'bio' => $request->input('bio'),
+             'picture_path' => $request->picture_path,
 
            ]);
     
