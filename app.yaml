@@ -8,7 +8,7 @@ env_variables:
   SESSION_DRIVER: cookie
   CACHE_DRIVER: file
     ## Set these environment variables according to your CloudSQL configuration.
-  DB_DATABASE: oneset1
+  DB_DATABASE: oneset2
   DB_USERNAME: root
   DB_PASSWORD: root
   DB_SOCKET: "/cloudsql/oneset:us-east1:taylorakin"
