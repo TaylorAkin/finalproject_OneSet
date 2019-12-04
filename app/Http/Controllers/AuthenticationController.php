@@ -43,7 +43,7 @@ class AuthenticationController extends Controller
                 $user->venue = $venue;
                 $user->profile = $profile;
                 $user->musicianTags = $musicianTags;
-                // $user->role = $request->role;
+                $user->role = count($musician) ? "musician" : "venue";
                 $response = [
                     'token' => $token,
                     'user' => $user,
@@ -90,10 +90,12 @@ class AuthenticationController extends Controller
         if ($request->role === 'musician') {
 
             $createmusician = Musician::create(["user_id" => $user->id]);
+            $user->musician = $createmusician;
             // $user->musician =$createmusician;
         } else {
-
+            
             $createvenue = Venue::create(["user_id" => $user->id]);
+            $user->venue = $createvenue;
 
         }
 
