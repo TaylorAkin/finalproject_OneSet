@@ -4,7 +4,8 @@
 
 ## About OneSet
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+OneSet is a web application that allows musicians to easily find open availabilities to play, wherever someone has posted an opening.
+With 2 user types, musicians and venues(people looking for musicians, both can register and then become searchable to one another. Musicians can find venues that have posted available openings, and Venues can also search for local musicians.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
