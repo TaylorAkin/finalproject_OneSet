@@ -17,15 +17,12 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 ## Built With
 
 
-- **[laravel6](https://laravel.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
+- **[Laravel6](https://laravel.com/)**
+- **[React.js](https://reactjs.org/)**
+- **[BootStrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)**
+- **[reactstrap](https://reactstrap.github.io/)**
+- **[MDBootStrap](https://mdbootstrap.com/)**
+
 - [UserInsights](https://userinsights.com)
 - [Fragrantica](https://www.fragrantica.com)
 - [SOFTonSOFA](https://softonsofa.com/)
