@@ -21,6 +21,8 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 - **[BootStrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)**
 - **[reactstrap](https://reactstrap.github.io/)**
 - **[MDBootStrap](https://mdbootstrap.com/)**
+- **[NPM react-cardflip](https://www.npmjs.com/package/react-card-flip)**
+- **[NPM react-youtube](https://www.npmjs.com/package/react-youtube)**
 
 
 ## First Iteration
