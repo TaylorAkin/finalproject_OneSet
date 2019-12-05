@@ -58,7 +58,7 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within OneSet, please send an e-mail to Taylor Akin via [taylorakin.ky@gmail.com](mailto:taylorakin.ky@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## Acknowledgements
 
