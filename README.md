@@ -23,13 +23,30 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 - **[MDBootStrap](https://mdbootstrap.com/)**
 
 
-## Contributing
+## First Iteration
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+I chose 11 stories to complete during my first sprint of this project, accomplishing 8 of them.  
+Users are able to register and edit their own personal profile with a bio, and tag names for musicians.
+Users can also view the opposite user type in a search view, that comes with updated data from their profiles.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Known Bugs/Things to Fix
+ -Fixing buttons on register to toggle press, using a radio instead. Just have to figure out how to capture the event.
+ -A musician can select multiple of the same tags from the dropdown on their profile.
+ -I learned late that the Dev Tools IphoneX view does not translate 100%, so I will need to update my footer buttons/icons to style         correctly
+ -When you refresh the page it takes you back to the profile page(needs to stay on the same)
+ -When you update your bio, if you refresh it will revert back to what was last in the database. However if you log back in it will be populated as you had just saved it. Needs to be a savy way of conditional rendering from local storage for the refresh.
+ 
+ 
+## Next Iteration
+
+Continue working through my backlog, focusing on:
+-Finishing the profile picture and youtube upload
+-Allowing more tag selections for musicians
+-Adding a filter search for finding users and musician types
+-Creating the calander for venues to populate available time slots
+ 
+
 
 ## Security Vulnerabilities
 
